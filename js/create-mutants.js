@@ -1,32 +1,26 @@
 /**
  * Created by mketiku on 6/7/16.
  */
-var url = 'https://mutant-school.herokuapp.com/api/v1/mutants';
+$('#new_mutant').on('submit', handleDeleteClick)
+//passes the new mutant on submit to handleDeleteClick submit
 
-$('#new_mutant').on('submit', handleCreateFormSubmit())
-
-function handleCreateFormSubmit (ev){
+function handleDeleteClick(ev) {
     ev.preventDefault();
-    var f = ev.currentTarget;
-    var mutant = {
-        mutant_name: f.mutant_name.value,
-        real_name: f.real_name.value,
-        power: f.power.value,
-    };
-    createMutant(mutant)
+    var li = $(ev.currentTarget).closest('li');
+    var id = li.attr('data-id')
+    deleteMutant(id);
 }
 
-function createMutant(mutant) {
 
-    $.post({
-        url: url,
-        data: {
-            mutant: mutant
+function deleteMutant(id) {
+//function does not need data, it just deletes it
+    //mutants are deleted by id
 
-        },
-
-        success: function (mutant) {
-            console.log(x.mutant_name)
+    $.ajax({
+        method: 'delete',
+        url: url + '/' + id,
+        success: function() {
+            $('li[data-id=' + id + ']').remove();
         },
 });
 
