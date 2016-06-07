@@ -13,9 +13,9 @@ function handleCreateFormSubmit (ev){
     ev.preventDefault();
     var f = ev.currentTarget;
     var mutant = {
-        mutant_name: "Michael Mutant",
-        real_name: "Michael",
-        power: "Yeah"
+        mutant_name: f.mutant_name.value,
+        real_name: f.real_name.value,
+        power: f.power.value,
     };
     createMutant(mutant)
 }
@@ -30,8 +30,8 @@ function createMutant(mutant) {
 
         },
 
-        success: function (x) {
-            alert(x);
+        success: function (mutant) {
+            console.log(x.mutant_name)
         },
 });
 
