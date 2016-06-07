@@ -3,11 +3,7 @@
  */
 var url = 'https://mutant-school.herokuapp.com/api/v1/mutants';
 
-$('#new_mutant').on('submit', handleCreateFormSubmit() {
-
-//    prevent event of the submit button from working
-    
-})
+$('#new_mutant').on('submit', handleCreateFormSubmit())
 
 function handleCreateFormSubmit (ev){
     ev.preventDefault();
@@ -19,7 +15,6 @@ function handleCreateFormSubmit (ev){
     };
     createMutant(mutant)
 }
-
 
 function createMutant(mutant) {
 
